@@ -37,6 +37,13 @@ List::List(){
   first = nullptr;
 }
 
+bool List::firstNull(){
+  if(first == nullptr){
+    return true;
+  }
+  return false;
+}
+
 void List::addHead(Node* newNode){
   newNode->setNext(first);
   first = newNode;
@@ -64,7 +71,9 @@ Node* List::getTail(){
 
 void List::removeHead(){
   if(first != nullptr){
+
     first = first->getNext();
+
   }
 }
 
@@ -72,14 +81,15 @@ void List::removeTail(){
   Node* temp = first;
   if(first->getNext() == nullptr){
     first = nullptr;
+  }else{
+    while(temp->getNext()->getNext() != nullptr){
+      temp = temp->getNext();
+    }
+    temp->setNext(nullptr);
   }
-  while(temp->getNext()->getNext() != nullptr){
-    temp = temp->getNext();
-  }
-  temp->setNext(nullptr);
 }
 
-void List::print(){
+void List::printList(){
   if(first != nullptr){
     first->print();
   }

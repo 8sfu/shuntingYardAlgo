@@ -2,9 +2,10 @@
 #define STACK_H
 #include "list.h"
 
-class Stack : public List{
+class Stack : protected List{
  public:
   Stack();
+  bool isNotEmpty();
   void push(Node* newNode);
   Node* peek();
   Node* pop();

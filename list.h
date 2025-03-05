@@ -18,13 +18,14 @@ private:
 class List {
  public:
   List();
+  bool firstNull();
   void addHead(Node* newNode);
   void addTail(Node* newNode);
   Node* getHead();
   Node* getTail();
   void removeHead();
   void removeTail();
-  void print();
+  void printList();
   ~List();
  private:
   Node* first;

@@ -1,10 +1,18 @@
 #include <iostream>
 #include "stack.h"
+#include "list.h"
 
 using namespace std;
 
 Stack::Stack(){
   List();
+}
+
+bool Stack::isNotEmpty(){
+  if(this->firstNull()){
+    return false;
+  }
+  return true;
 }
 
 void Stack::push(Node* newNode){
@@ -16,19 +24,21 @@ Node* Stack::peek(){
 }
 
 Node* Stack::pop(){
-  Node* temp = this->getHead();
-  this->removeHead();
-  return temp;
+  // if(this->getHead() != nullptr){
+    Node* temp = this->getHead();
+    this->removeHead();
+    return temp;
+    // }
 }
 
 void Stack::print(){
   if(this->getHead() != nullptr){
     cout << "Stack:  ";
-    this->print();
+    this->printList();
     cout << endl;
   }
 }
 
 Stack::~Stack(){
-  
+
 }
