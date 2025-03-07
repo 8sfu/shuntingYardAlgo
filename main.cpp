@@ -14,6 +14,17 @@ bool cmp(char* input, const char* checkAgainst){ //simplify input to cstring com
   return false;
 }
 
+char* shuntingYard(char infix[40][40],int len){
+  for(int i = 0; i < len; i++){
+    cout << i << ": " << infix[i] << endl;
+  }
+
+  
+  
+  char* postfix = infix[0];
+  return postfix;
+}
+
 int main(){
   char* input = new char[40];
   
@@ -67,27 +78,32 @@ int main(){
   
   */
 
-  /*while(true){
+  while(true){
     cout << "enter [an equation in infix] or quit" << endl;
     cin.getline(input,40);
-    char* splitInput;
+    char* token;
     int i = 0;
-    char termArr[40][40]{};
-     
-    splitInput = strtok(input," ");
-    while(splitInput != NULL){
-      strcpy(termArr[i],splitInput);
+    char tokenArr[40][40]{};
+    
+        
+    token = strtok(input," ");
+    while(token != NULL){
+      strcpy(tokenArr[i],token);
       i++;
-      splitInput = strtok(NULL," ");
+      token = strtok(NULL," ");
     }
     
     for(int j = 0; j < i; j++){
-      cout << j+1 << ": " << termArr[j] << endl;
+      //cout << j+1 << ": " << tokenArr[j] << endl;
     }
-    
+
+    char* postfix = shuntingYard(tokenArr,i);
+    cout << postfix << endl;
     return 0;
     
-    }*/
+  }
+
+
 
   
 
