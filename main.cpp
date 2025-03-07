@@ -70,14 +70,19 @@ int main(){
   while(true){
     cout << "enter [an equation in infix] or quit" << endl;
     cin.getline(input,40);
-
-    if(cmp(input,"quit")){
-      return 0;
+    char* splitInput;
+    int i = 0;
+    
+    splitInput = strtok(input," ");
+    while(splitInput != NULL){
+      i++;
+      cout << splitInput << endl;
+      splitInput = strtok(NULL," ");
     }
     
-    for(int i = 0; i < strlen(input); i+= 2){
-      cout << input[i] << endl;
-    }
+    cout << i << endl;
+    
+    return 0;
     
   }
 
