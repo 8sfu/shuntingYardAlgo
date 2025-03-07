@@ -67,24 +67,27 @@ int main(){
   
   */
 
-  while(true){
+  /*while(true){
     cout << "enter [an equation in infix] or quit" << endl;
     cin.getline(input,40);
     char* splitInput;
     int i = 0;
-    
+    char termArr[40][40]{};
+     
     splitInput = strtok(input," ");
     while(splitInput != NULL){
+      strcpy(termArr[i],splitInput);
       i++;
-      cout << splitInput << endl;
       splitInput = strtok(NULL," ");
     }
     
-    cout << i << endl;
+    for(int j = 0; j < i; j++){
+      cout << j+1 << ": " << termArr[j] << endl;
+    }
     
     return 0;
     
-  }
+    }*/
 
   
 
