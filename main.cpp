@@ -25,13 +25,9 @@ int charLength(char* check){
 
 int getPrecedence(char* token){
   char check = token[0];
-  if(check == '+'){
-    return 1;
-  }else if(check == '-'){
+  if(check == '+' || check == '-'){
     return 2;
-  }else if(check == '*'){
-    return 3;
-  }else if(check == '/'){
+  }else if(check == '*' || check == '/'){
     return 4;
   }else if(check == '^'){
     return 5;
