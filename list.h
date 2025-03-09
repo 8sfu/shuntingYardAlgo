@@ -1,7 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 
-struct Node {
+class Node {
 public:
   Node(char* token);
   char* getValue();
