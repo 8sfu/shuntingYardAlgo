@@ -56,6 +56,14 @@ bool isNumber(Node* node){
   return isNumber;
 }
 
+bool rightAssoc(Node* node){
+  char* check = node->getValue();
+  if(charLength(check) == 1 && getPrecedence(check) == 5){
+    return true;
+  }
+  return false;
+}
+
 bool isOperator(Node* node){
   char* check = node->getValue();
   if(charLength(check) == 1 && getPrecedence(check) < 6 && getPrecedence(check) > 0){
@@ -111,7 +119,8 @@ void shuntingYard(Queue* infix,int len){
       output->enqueue(check);
     }else if(isOperator(check)){
       while(operatorStack->isNotEmpty() && !isLeftParen(operatorStack->peek()) 
-	    && getPrecedence(operatorStack->peek()->getValue()) >= getPrecedence(check->getValue())){
+	    && getPrecedence(operatorStack->peek()->getValue()) >= getPrecedence(check->getValue())
+	    && !rightAssoc(check)){
 	//cout << operatorStack->peek()->getValue() << " was >= " << check->getValue() << " enqueued." << endl;
 	output->enqueue(operatorStack->pop());
       }
