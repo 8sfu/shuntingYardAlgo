@@ -38,7 +38,9 @@ int getPrecedence(char* token){
   }else{
     return 0;
   }
-}
+  }
+
+//TO BE CONVERTED TO NODE FUNCTIONS
 
 bool isNumber(Node* node){
   char* check = node->getValue();
@@ -91,6 +93,9 @@ bool isRightParen(Node* node){
   return false;
 }
 
+
+
+
 int charToInt(char* check){
   double value = 0.0;
   int i = 0;
@@ -101,7 +106,7 @@ int charToInt(char* check){
   return value * pow(10,i-1);
 }
 
-void shuntingYard(Queue* infix,int len){
+Queue* shuntingYard(Queue* infix,int len){
   Stack* operatorStack = new Stack();
   Queue* output = new Queue();
   
@@ -151,12 +156,8 @@ void shuntingYard(Queue* infix,int len){
     //cout << "op stack still not empty, popped " << operatorStack->peek()->getValue() << " and enqueued it" << endl;
     output->enqueue(operatorStack->pop());
   }
-
-  while(output->isNotEmpty()){
-    cout << output->dequeue()->getValue();
-  }
   
-  return; //RETURN OUTPUT QUEUE WHEN DONE
+  return output; //RETURN OUTPUT QUEUE WHEN DONE
 }
 
 int main(){
@@ -239,9 +240,11 @@ int main(){
     }
     
     
-    shuntingYard(infix,i);
+    Queue* postfix = shuntingYard(infix,i);
+    while(postfix->isNotEmpty()){
+      cout << postfix->dequeue()->getValue() << " ";
+    }
     
-    infix->print();
     
     cout << endl;
     return 0;

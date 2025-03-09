@@ -8,6 +8,15 @@ public:
   Node* getNext();
   void setNext(Node* newNode);
   void print();
+  
+  int tokenLength();
+  int getPrecedence();
+  bool isNumber();
+  bool isRightAssoc();
+  bool isOperator();
+  bool isLeftParen();
+  bool isRightParen();
+  
 private:
   char* value;
   Node* next;
