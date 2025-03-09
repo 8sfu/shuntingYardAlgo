@@ -4,16 +4,14 @@
 
 using namespace std;
 
-Node::Node(){
+Node::Node(char* token){
   next = nullptr;
   left = nullptr;
   right = nullptr;
-  cout << "What is the new node?" << endl;
-  cin >> value;
-  cin.ignore();
+  value = token;
 }
 
-int Node::getValue(){
+char* Node::getValue(){
   return value;
 }
 

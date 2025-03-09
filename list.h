@@ -3,13 +3,13 @@
 
 struct Node {
 public:
-  Node();
-  int getValue();
+  Node(char* token);
+  char* getValue();
   Node* getNext();
   void setNext(Node* newNode);
   void print();
 private:
-  int value;
+  char* value;
   Node* next;
   Node* left;
   Node* right;
