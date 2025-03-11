@@ -19,7 +19,7 @@ void Queue::enqueue(Node* newNode){
 }
 
 Node* Queue::dequeue(){
-  //if(this->getTail() != nullptr){
+  // if(this->getTail() != nullptr){
     Node* temp = this->getTail();
     this->removeTail();
     return temp;

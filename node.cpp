@@ -22,26 +22,9 @@ void Node::setNext(Node* newNode){
   next = newNode;
 }
 
-void Node::setLeft(Node* newNode){
-  left = newNode;
-}
-
-void Node::setRight(Node* newNode){
-  right = newNode;
-}
-
 void Node::print(){
-  if(left != nullptr){
-    //cout << "      ";
-    left->print();
-  }
-  cout << value << endl;
-  if(right != nullptr){
-    //cout << "      ";
-    right->print();
-  }
-  if(left == nullptr && right == nullptr && next != nullptr){
-    //cout << "  ";
+  cout << value << ",  ";
+  if(next != nullptr){
     next->print();
   }
 }

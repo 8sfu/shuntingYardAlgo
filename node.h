@@ -7,8 +7,6 @@ class Node {
   char* getValue();
   Node* getNext();
   void setNext(Node* newNode);
-  void setLeft(Node* newNode);
-  void setRight(Node* newNode);
   void print();
 
   int tokenLength();
