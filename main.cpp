@@ -2,9 +2,11 @@
 #include <cstring>
 #include <cmath>
 
+#include "node.h"
 #include "list.h"
 #include "stack.h"
 #include "queue.h"
+#include "tree.h"
 
 using namespace std;
 
@@ -14,6 +16,8 @@ bool cmp(char* input, const char* checkAgainst){ //simplified comparison
   }
   return false;
 }
+
+//TO BE CONVERTED TO NODE FUNCTIONS
 
 int charLength(char* check){
   int i = 0;
@@ -38,9 +42,8 @@ int getPrecedence(char* token){
   }else{
     return 0;
   }
-  }
+}
 
-//TO BE CONVERTED TO NODE FUNCTIONS
 
 bool isNumber(Node* node){
   char* check = node->getValue();
@@ -241,9 +244,10 @@ int main(){
     
     
     Queue* postfix = shuntingYard(infix,i);
-    while(postfix->isNotEmpty()){
+    /*while(postfix->isNotEmpty()){
       cout << postfix->dequeue()->getValue() << " ";
-    }
+      }*/
+    Tree* binaryTree = new Tree(postfix);
     
     
     cout << endl;
