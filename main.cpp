@@ -54,7 +54,7 @@ bool isNumber(Node* node){
     i++;
   }
   if(isNumber){
-    cout << check << " is a number." << endl;
+    //cout << check << " is a number." << endl;
   }
   return isNumber;
 }
@@ -246,7 +246,9 @@ int main(){
       cout << postfix->dequeue()->getValue() << " ";
       }*/
     Tree* binaryTree = new Tree(postfix);
-    
+    binaryTree->printPrefix();
+    binaryTree->printInfix();
+    binaryTree->printPostfix();
     
     cout << endl;
     return 0;

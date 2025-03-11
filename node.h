@@ -9,8 +9,14 @@ class Node {
   void setNext(Node* newNode);
   void setLeft(Node* newNode);
   void setRight(Node* newNode);
-  void print();
 
+
+  void print();
+  void printPrefix();
+  void printInfix();
+  void printPostfix();
+
+  
   int tokenLength();
   int getPrecedence();
   bool isNumber();

@@ -37,6 +37,38 @@ void Node::print(){
   }
 }
 
+void Node::printPrefix(){
+  cout << value << " ";
+  if(left != nullptr){
+    left->printPrefix();
+  }
+  if(right != nullptr){
+    right->printPrefix();
+  }
+}
+
+void Node::printInfix(){
+  if(left != nullptr){
+    cout << "( ";
+    left->printInfix();
+  }
+  cout << value << " ";
+  if(right != nullptr){
+    right->printInfix();
+    cout << ") ";
+  }
+}
+
+void Node::printPostfix(){
+  if(left != nullptr){
+    left->printPostfix();
+  }
+  if(right != nullptr){
+    right->printPostfix();
+  }
+  cout << value << " ";
+}
+
 int Node::tokenLength(){
   int i = 0;
   while(value[i] != '\0'){
