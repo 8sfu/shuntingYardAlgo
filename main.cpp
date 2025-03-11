@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cmath>
 
+#include "tree.h"
 #include "list.h"
 #include "stack.h"
 #include "queue.h"
@@ -241,9 +242,10 @@ int main(){
     
     
     Queue* postfix = shuntingYard(infix,i);
-    while(postfix->isNotEmpty()){
+    /*while(postfix->isNotEmpty()){
       cout << postfix->dequeue()->getValue() << " ";
-    }
+      }*/
+    Tree* binaryTree = new Tree(postfix);
     
     
     cout << endl;

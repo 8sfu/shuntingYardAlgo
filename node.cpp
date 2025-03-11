@@ -22,6 +22,14 @@ void Node::setNext(Node* newNode){
   next = newNode;
 }
 
+void Node::setLeft(Node* newNode){
+  left = newNode;
+}
+
+void Node::setRight(Node* newNode){
+  right = newNode;
+}
+
 void Node::print(){
   cout << value << ",  ";
   if(next != nullptr){
