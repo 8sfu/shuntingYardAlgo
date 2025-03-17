@@ -164,7 +164,8 @@ Queue* shuntingYard(Queue* infix,int len){
 int main(){
   char* input = new char[40];
   
-  /*
+  /* 
+     //Stack for debugging
   Stack* stack = new Stack();
     
   while(true){
@@ -191,7 +192,8 @@ int main(){
   
   */
 
-  /*
+  /* 
+     //Queue for debugging
   Queue* queue = new Queue();
     
   while(true){
@@ -217,8 +219,12 @@ int main(){
   Queue* infix = new Queue();
 
   while(true){
-    cout << "enter [an equation in infix] or quit" << endl;
+    cout << "enter [an equation in infix, like '( 3 + 5 ) ^ 4 / 2'] or 'quit'" << endl;
     cin.getline(input,40);
+    if(cmp(input,"quit")){
+      return 0;
+    }
+    
     char* token;
     int i = 0;
     char tokenArr[40][40] = {"\0"};
@@ -230,26 +236,32 @@ int main(){
     
     
     token = strtok(input," ");
-    while(token != NULL){
+    while(token != NULL){ //split inputs into an interpretable tokenized infix array
       strcpy(tokenArr[i],token);
       i++;
       token = strtok(NULL," ");
     }
     
-    for(int j = 0; j < i; j++){
+    for(int j = 0; j < i; j++){ 
       infix->enqueue(new Node(tokenArr[j]));
     }
     
     
-    Queue* postfix = shuntingYard(infix,i);
+    Queue* postfix = shuntingYard(infix,i); //run input through the shunting yard algorithm
     /*while(postfix->isNotEmpty()){
       cout << postfix->dequeue()->getValue() << " ";
       }*/
-    Tree* binaryTree = new Tree(postfix);
-    
+    Tree* binaryTree = new Tree(postfix); //create a binary tree with each input form
+    cout << "Prefix: ";
+    binaryTree->printPrefix();
+    cout << endl << "Infix: ";
+    binaryTree->printInfix();
+    cout << endl << "Postfix: ";
+    binaryTree->printPostfix();
+
     
     cout << endl;
-    return 0;
+    
   }
   
 

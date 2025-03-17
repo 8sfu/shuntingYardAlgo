@@ -19,6 +19,10 @@ class Node {
   bool isLeftParen();
   bool isRightParen();
 
+  void printPrefix();
+  void printPostfix();
+  void printInfix();
+
  private:
   char* value;
   Node* next;

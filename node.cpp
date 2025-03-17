@@ -100,3 +100,35 @@ bool Node::isRightParen(){
   }
   return false;
 }
+
+void Node::printPrefix(){
+  cout << value;
+  if(left != nullptr){
+  left->printPrefix();
+  }
+  if(right != nullptr){
+  right->printPrefix();
+  }
+}
+
+void Node::printPostfix(){
+  if(left != nullptr){
+  left->printPostfix();
+  }
+  if(right != nullptr){
+  right->printPostfix();
+  }
+  cout << value;
+}
+
+void Node::printInfix(){
+  if(left != nullptr){
+    cout << "( ";
+    left->printInfix();
+  }
+  cout << value << " ";
+  if(right != nullptr){
+    right->printInfix();
+    cout << ") ";
+  }
+}
